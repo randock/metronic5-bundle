@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 namespace Randock\Metronic5Bundle\DependencyInjection;
 
@@ -18,5 +19,4 @@ class RandockMetronic5Extension extends Extension
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
     }
-
 }

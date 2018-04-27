@@ -1,0 +1,28 @@
+{
+    "name": "randock/metronic5-bundle",
+    "type": "project",
+    "license": "proprietary",
+    "require": {
+        "knplabs/knp-menu-bundle": "^2.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "*",
+        "randock/build": "dev-develop"
+    },
+    "config": {
+        "preferred-install": {
+            "*": "dist"
+        },
+        "sort-packages": true
+    },
+    "autoload": {
+        "psr-4": {
+            "Randock\\Metronic5Bundle\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Randock\\": "tests/"
+        }
+    }
+}

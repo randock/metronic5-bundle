@@ -1,1 +1,23 @@
 services:
+
+    metronic.menu_builder:
+        class: "replaced_by_configuration"
+        arguments:
+            - "@knp_menu.factory"
+            - "@service_container"
+
+    metronic.top_menu:
+        class: Knp\Menu\MenuItem
+        public: true
+        factory: ["@metronic.menu_builder", createTopMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - {name: knp_menu.menu, alias: topMenu}
+
+    metronic.main_menu:
+        class: Knp\Menu\MenuItem
+        public: true
+        factory: ["@metronic.menu_builder", createMainMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - {name: knp_menu.menu, alias: mainMenu}

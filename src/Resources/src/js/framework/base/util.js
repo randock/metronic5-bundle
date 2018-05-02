@@ -4,7 +4,7 @@
 
 //== Polyfill
 
-// matches polyfill
+// matches polyfillf
 this.Element && function(ElementPrototype) {
     ElementPrototype.matches = ElementPrototype.matches ||
     ElementPrototype.matchesSelector ||

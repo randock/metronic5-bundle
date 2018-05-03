@@ -47,4 +47,32 @@ class MenuBuilder1 extends MenuBuilder
             }
         }
     }
+
+    /**
+     * @param RequestStack $requestStack
+     *
+     * @return ItemInterface
+     */
+    public function createTopMenu(RequestStack $requestStack): ItemInterface
+    {
+        /** @var ItemInterface $menu */
+        $menu = $this->factory->createItem('topmenu');
+        $menu->setChildrenAttribute('class', 'm-nav m-nav--skin-light');
+        $this->loadServices($menu, $this->factory, self::TOP_MENU);
+        $this->setTopMenuItemsClasses($menu);
+
+        $this->reorderMenuItems($menu);
+
+        return $menu;
+    }
+
+    public function setTopMenuItemsClasses(ItemInterface $item)
+    {
+        /** @var ItemInterface $child */
+        foreach ($item as $child) {
+            if(null === $child->getLinkAttribute('class')){
+                $child->setLinkAttribute('class', 'm-nav__link');
+            }
+        }
+    }
 }

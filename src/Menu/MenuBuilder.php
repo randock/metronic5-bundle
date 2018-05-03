@@ -44,23 +44,6 @@ abstract class MenuBuilder
         $this->container = $container;
     }
 
-    /**
-     * @param RequestStack $requestStack
-     *
-     * @return ItemInterface
-     */
-    public function createTopMenu(RequestStack $requestStack): ItemInterface
-    {
-        /** @var ItemInterface $menu */
-        $menu = $this->factory->createItem('topmenu');
-        $menu->setChildrenAttribute('class', 'dropdown-menu dropdown-menu-default');
-
-        $this->loadServices($menu, $this->factory, self::TOP_MENU);
-
-        $this->reorderMenuItems($menu);
-
-        return $menu;
-    }
 
     /**
      * @param array $services

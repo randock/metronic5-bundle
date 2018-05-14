@@ -1,0 +1,103 @@
+<li class="m-nav__item m-topbar__notifications m-topbar__notifications--img m-dropdown m-dropdown--large m-dropdown--header-bg-fill m-dropdown--arrow m-dropdown--align-right 	m-dropdown--mobile-full-width"
+    m-dropdown-toggle="click" m-dropdown-persistent="1">
+
+    <a href="#" class="m-nav__link m-dropdown__toggle"
+       id="m_topbar_notification_icon">
+        {% if options.newItems is defined and options.newItems == true %}
+            <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
+        {% endif %}
+
+        <span class="m-nav__link-icon">
+            {% if options.icon is defined %}
+                <i class="{{ options.icon }}"></i>
+            {% else %}
+                <i class="flaticon-music-2"></i>
+            {% endif %}
+        </span>
+    </a>
+
+    <div class="m-dropdown__wrapper">
+        <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
+        <div class="m-dropdown__inner">
+            {% if options.header is defined %}
+                <div class="m-dropdown__header m--align-center">
+                    {% if options.header.title is defined %}
+                        <span class="m-dropdown__header-title">
+                    {{ options.header.title }}
+                </span>
+                    {% endif %}
+                    {% if options.header.subtitle is defined %}
+                        <span class="m-dropdown__header-subtitle">
+                    {{ options.header.subtitle }}
+                </span>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="m-dropdown__body">
+                <div class="m-dropdown__content">
+                    <div class="tab-content">
+                        <div class="tab-pane active"
+                             id="topbar_notifications_notifications"
+                             role="tabpanel">
+                            <div class="m-scrollable" data-scrollable="true"
+                                 data-max-height="{% if options.height is defined %} {{ options.height }} {% else %} 250 {% endif %}"
+                                 data-mobile-max-height="200">
+                                <div class="m-list-timeline m-list-timeline--skin-light">
+                                    <div class="m-list-timeline__items">
+                                        {% for item in items %}
+                                        <div class="m-list-timeline__item">
+
+                                            <span class="m-list-timeline__badge"></span>
+
+                                            {% if item.getUrl() is not null %}
+                                                {% set elementTag = 'a' %}
+                                                {% set elementHref = item.getUrl() %}
+                                            {% else %}
+                                                {% set elementTag = 'span' %}
+                                                {% set elementHref = 'javascript:;' %}
+                                            {% endif %}
+                                            <{{ elementTag }} href="{{ elementHref }}" class="m-list-timeline__text">
+                                            {{ item.title }}
+                                            {% if elementTag == 'span' %}
+                                                {% if item.getLinkAfterTitle() is not null %}
+                                                    <a href="{% if item.getLinkAfterTitle().href is defined %} {{ item.getLinkAfterTitle().href }} {% else %} javascript:; {% endif %}"
+                                                       class="m-link">
+                                                        {% if item.getLinkAfterTitle().text is defined %} {{ item.getLinkAfterTitle().text }} {% endif %}
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+                                            {% if item.getBadge() is not null %}
+                                                {% if item.getBadge().type is defined %}
+                                                    {% set badgeType = item.getBadge().type %}
+                                                {% else %}
+                                                {% set badgeType = 'success' %}
+                                                {% endif %}
+                                                {% if item.getBadge().text is defined %}
+                                                <span class="m-badge m-badge--{{ badgeType }} m-badge--wide">
+                                                        {{ item.getBadge().text }}
+                                                </span>
+                                                {% elseif item.getBadge().icon is defined %}
+                                            <span class="m-badge m-badge--{{ badgeType }} m-badge--rounded"
+                                                  style="border-radius: 100%; padding-bottom: 2px">
+                                                        <i{{ item.getBadge().icon }}></i>
+                                                    </span>
+                                                {% endif %}
+                                            {% endif %}
+                                        </{{ elementTag }}>
+
+                                        {% if item.getRightText() is not null %}
+                                                <span class="m-list-timeline__time">
+                                                {{ item.getRightText() }}
+                                            </span>
+                                            {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</li>

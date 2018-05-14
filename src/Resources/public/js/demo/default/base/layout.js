@@ -1,9 +1,9 @@
 var mLayout = function() {
     var header;
-    var horMenu;
+    // var horMenu;
     var asideMenu;
     var asideMenuOffcanvas;
-    var horMenuOffcanvas;
+    // var horMenuOffcanvas;
     var asideLeftToggle;
     var scrollTop;
     // var quicksearch;
@@ -14,7 +14,7 @@ var mLayout = function() {
         var headerEl = mUtil.get('m_header');
         var options = {
             offset: {},
-            minimize:{}
+            minimize:{}       
         };
 
         if (mUtil.attr(headerEl, 'm-minimize-mobile') == 'hide') {
@@ -39,37 +39,37 @@ var mLayout = function() {
 
         if (tmp = mUtil.attr(headerEl, 'm-minimize-mobile-offset')) {
             options.offset.mobile = tmp;
-        }
+        }        
 
         header = new mHeader('m_header', options);
     }
 
     //== Hor menu
-    var initHorMenu = function() {
+    // var initHorMenu = function() {
         // init aside left offcanvas
-        horMenuOffcanvas = new mOffcanvas('m_header_menu', {
-            overlay: true,
-            baseClass: 'm-aside-header-menu-mobile',
-            closeBy: 'm_aside_header_menu_mobile_close_btn',
-            toggleBy: {
-                target: 'm_aside_header_menu_mobile_toggle',
-                state: 'm-brand__toggler--active'
-            }
-        });
-
-        horMenu = new mMenu('m_header_menu', {
-            submenu: {
-                desktop: 'dropdown',
-                tablet: 'accordion',
-                mobile: 'accordion'
-            },
-            accordion: {
-                slideSpeed: 200,  // accordion toggle slide speed in milliseconds
-                autoScroll: true, // enable auto scrolling(focus) to the clicked menu item
-                expandAll: false   // allow having multiple expanded accordions in the menu
-            }
-        });
-    }
+    //     horMenuOffcanvas = new mOffcanvas('m_header_menu', {
+    //         overlay: true,
+    //         baseClass: 'm-aside-header-menu-mobile',
+    //         closeBy: 'm_aside_header_menu_mobile_close_btn',
+    //         toggleBy: {
+    //             target: 'm_aside_header_menu_mobile_toggle',
+    //             state: 'm-brand__toggler--active'
+    //         }
+    //     });
+    //
+    //     horMenu = new mMenu('m_header_menu', {
+    //         submenu: {
+    //             desktop: 'dropdown',
+    //             tablet: 'accordion',
+    //             mobile: 'accordion'
+    //         },
+    //         accordion: {
+    //             slideSpeed: 200,  // accordion toggle slide speed in milliseconds
+    //             autoScroll: true, // enable auto scrolling(focus) to the clicked menu item
+    //             expandAll: false   // allow having multiple expanded accordions in the menu
+    //         }
+    //     });
+    // }
 
     //== Aside menu
     var initLeftAsideMenu = function() {
@@ -85,7 +85,7 @@ var mLayout = function() {
                     default: menuDesktopMode,
                     // whenever body has this class switch the menu mode to dropdown
                     state: {
-                        body: 'm-aside-left--minimize',
+                        body: 'm-aside-left--minimize',  
                         mode: 'dropdown'
                     }
                 },
@@ -97,12 +97,12 @@ var mLayout = function() {
             accordion: {
                 autoScroll: true,
                 expandAll: false
-            }
+            }            
         });
 
         // handle fixed aside menu
         if (menu.data('m-menu-scrollable') === '1') {
-            function initScrollableMenu(obj) {
+            function initScrollableMenu(obj) {    
                 if (mUtil.isInResponsiveRange('tablet-and-mobile')) {
                     // destroy if the instance was previously created
                     mApp.destroyScroller(obj);
@@ -116,11 +116,11 @@ var mLayout = function() {
             }
 
             initScrollableMenu(menu);
-
-            mUtil.addResizeHandler(function() {
+            
+            mUtil.addResizeHandler(function() {            
                 initScrollableMenu(asideMenu);
-            });
-        }
+            });   
+        }      
     }
 
     //== Aside
@@ -135,9 +135,9 @@ var mLayout = function() {
             closeBy: 'm_aside_left_close_btn',
             toggleBy: {
                 target: 'm_aside_left_offcanvas_toggle',
-                state: 'm-brand__toggler--active'
-            }
-        });
+                state: 'm-brand__toggler--active'                
+            }            
+        });        
     }
 
     //== Sidebar toggle
@@ -153,13 +153,13 @@ var mLayout = function() {
         });
 
         asideLeftToggle.on('toggle', function(toggle) {
-            horMenu.pauseDropdownHover(800);
+            // horMenu.pauseDropdownHover(800);
             asideMenu.pauseDropdownHover(800);
 
             //== Remember state in cookie
             Cookies.set('sidebar_toggle_state', toggle.getState());
-            // to set default minimized left aside use this cookie value in your
-            // server side code and add "m-brand--minimize m-aside-left--minimize" classes to
+            // to set default minimized left aside use this cookie value in your 
+            // server side code and add "m-brand--minimize m-aside-left--minimize" classes to 
             // the body tag in order to initialize the minimized left aside mode during page loading.
         });
     }
@@ -168,18 +168,18 @@ var mLayout = function() {
     var initTopbar = function() {
         $('#m_aside_header_topbar_mobile_toggle').click(function() {
             $('body').toggleClass('m-topbar--on');
-        });
+        });                                  
 
-        // Animated Notification Icon
-        setInterval(function() {
-            $('#m_topbar_notification_icon .m-nav__link-icon').addClass('m-animate-shake');
-            $('#m_topbar_notification_icon .m-nav__link-badge').addClass('m-animate-blink');
-        }, 3000);
-
-        setInterval(function() {
-            $('#m_topbar_notification_icon .m-nav__link-icon').removeClass('m-animate-shake');
-            $('#m_topbar_notification_icon .m-nav__link-badge').removeClass('m-animate-blink');
-        }, 6000);
+        // Animated Notification Icon 
+        // setInterval(function() {
+        //     $('#m_topbar_notification_icon .m-nav__link-icon').addClass('m-animate-shake');
+        //     $('#m_topbar_notification_icon .m-nav__link-badge').addClass('m-animate-blink');
+        // }, 3000);
+        //
+        // setInterval(function() {
+        //     $('#m_topbar_notification_icon .m-nav__link-icon').removeClass('m-animate-shake');
+        //     $('#m_topbar_notification_icon .m-nav__link-badge').removeClass('m-animate-blink');
+        // }, 6000);
     }
 
     // //== Quicksearch
@@ -223,14 +223,14 @@ var mLayout = function() {
     }
 
     return {
-        init: function() {
+        init: function() {  
             this.initHeader();
             this.initAside();
         },
 
         initHeader: function() {
             initStickyHeader();
-            initHorMenu();
+            // initHorMenu();
             initTopbar();
             // Randock: Disables because we don't use it
             // initQuicksearch();
@@ -239,11 +239,11 @@ var mLayout = function() {
 
         initAside: function() {
             initLeftAside();
-            initLeftAsideMenu();
+            initLeftAsideMenu();            
             initLeftAsideToggle();
 
             this.onLeftSidebarToggle(function(e) {
-                var datatables = $('.m-datatable');
+              var datatables = $('.m-datatable');
 
                 $(datatables).each(function() {
                     $(this).mDatatable('redraw');
@@ -258,7 +258,7 @@ var mLayout = function() {
         onLeftSidebarToggle: function(handler) {
             if (asideLeftToggle) {
                 asideLeftToggle.on('toggle', handler);
-            }
+            }            
         },
 
         closeMobileAsideMenuOffcanvas: function() {
@@ -267,11 +267,11 @@ var mLayout = function() {
             }
         },
 
-        closeMobileHorMenuOffcanvas: function() {
-            if (mUtil.isMobileDevice()) {
-                horMenuOffcanvas.hide();
-            }
-        }
+    //     closeMobileHorMenuOffcanvas: function() {
+    //         if (mUtil.isMobileDevice()) {
+    //             horMenuOffcanvas.hide();
+    //         }
+    //     }
     };
 }();
 

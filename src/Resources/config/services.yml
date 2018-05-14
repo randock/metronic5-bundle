@@ -21,3 +21,15 @@ services:
         arguments: ["@request_stack"]
         tags:
             - {name: knp_menu.menu, alias: mainMenu}
+
+    metronic.header_builder:
+        class: Randock\Metronic5Bundle\HeaderBuilder\HeaderBuilder
+        arguments:
+            - '@service_container'
+
+    metronic.getheaderlist.function:
+        class: Randock\Metronic5Bundle\HeaderBuilder\Twig\Metronic5HeaderBuilderExtension
+        arguments:
+            - '@metronic.header_builder'
+        tags:
+            - { name: twig.extension }

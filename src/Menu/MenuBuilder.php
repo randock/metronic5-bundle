@@ -6,7 +6,6 @@ namespace Randock\Metronic5Bundle\Menu;
 
 use Knp\Menu\ItemInterface;
 use Knp\Menu\FactoryInterface;
-use Symfony\Component\HttpFoundation\RequestStack;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 abstract class MenuBuilder
@@ -44,7 +43,6 @@ abstract class MenuBuilder
         $this->container = $container;
     }
 
-
     /**
      * @param array $services
      */
@@ -81,7 +79,7 @@ abstract class MenuBuilder
 
             $orderNumber = $menuItem->getExtra('orderNumber');
 
-            if ($orderNumber !== null) {
+            if (null !== $orderNumber) {
                 $menuOrderArray[$menuItem->getName()] = $orderNumber;
             } else {
                 $addLast[] = $menuItem->getName();

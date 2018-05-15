@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Randock\Metronic5Bundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
@@ -14,7 +16,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->enumNode('layout')->values([1,5])->isRequired()->end()
+            ->enumNode('layout')->values([1, 5])->isRequired()->end()
             ->end()
             ;
 

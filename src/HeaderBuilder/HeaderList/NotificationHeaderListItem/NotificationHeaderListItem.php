@@ -55,9 +55,10 @@ class NotificationHeaderListItem
      *
      * @return NotificationHeaderListItem
      */
-    public function setTitle(string $title): NotificationHeaderListItem
+    public function setTitle(string $title): self
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -74,9 +75,10 @@ class NotificationHeaderListItem
      *
      * @return NotificationHeaderListItem
      */
-    public function setUrl(string $url): NotificationHeaderListItem
+    public function setUrl(string $url): self
     {
         $this->url = $url;
+
         return $this;
     }
 
@@ -93,9 +95,10 @@ class NotificationHeaderListItem
      *
      * @return NotificationHeaderListItem
      */
-    public function setLinkAfterTitle(array $linkAfterTitle): NotificationHeaderListItem
+    public function setLinkAfterTitle(array $linkAfterTitle): self
     {
         $this->linkAfterTitle = $linkAfterTitle;
+
         return $this;
     }
 
@@ -112,9 +115,10 @@ class NotificationHeaderListItem
      *
      * @return NotificationHeaderListItem
      */
-    public function setBadge(array $badge): NotificationHeaderListItem
+    public function setBadge(array $badge): self
     {
         $this->badge = $badge;
+
         return $this;
     }
 
@@ -131,10 +135,10 @@ class NotificationHeaderListItem
      *
      * @return NotificationHeaderListItem
      */
-    public function setRightText(string $rightText): NotificationHeaderListItem
+    public function setRightText(string $rightText): self
     {
         $this->rightText = $rightText;
+
         return $this;
     }
-    
 }

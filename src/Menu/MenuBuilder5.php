@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class MenuBuilder5 extends MenuBuilder
 {
-    const TOGGLE_CLICK = 'click';
-    const TOGGLE_HOVER = 'hover';
+    public const TOGGLE_CLICK = 'click';
+    public const TOGGLE_HOVER = 'hover';
 
     /**
      * @param RequestStack $requestStack
@@ -40,7 +40,7 @@ class MenuBuilder5 extends MenuBuilder
             $child->setAttribute('class', 'm-menu__item');
 
             if ($child->hasChildren()) {
-                $child->setChildrenAttribute('class','m-menu__subnav');
+                $child->setChildrenAttribute('class', 'm-menu__subnav');
                 $child->setLinkAttribute('class', 'm-menu__link m-menu__toggle');
                 $child->setAttribute('class', 'm-menu__item m-menu__item--submenu m-menu__item--rel');
                 $child->setAttribute('m-menu-submenu-toggle', $submenutoggle);
@@ -74,10 +74,9 @@ class MenuBuilder5 extends MenuBuilder
     {
         /** @var ItemInterface $child */
         foreach ($item as $child) {
-            if(null === $child->getLinkAttribute('class')){
+            if (null === $child->getLinkAttribute('class')) {
                 $child->setLinkAttribute('class', 'm-nav__link');
             }
         }
     }
-
 }

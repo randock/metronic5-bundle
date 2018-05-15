@@ -9,7 +9,6 @@ use Symfony\Component\HttpFoundation\RequestStack;
 
 class MenuBuilder1 extends MenuBuilder
 {
-
     /**
      * @param RequestStack $requestStack
      *
@@ -70,7 +69,7 @@ class MenuBuilder1 extends MenuBuilder
     {
         /** @var ItemInterface $child */
         foreach ($item as $child) {
-            if(null === $child->getLinkAttribute('class')){
+            if (null === $child->getLinkAttribute('class')) {
                 $child->setLinkAttribute('class', 'm-nav__link');
             }
         }

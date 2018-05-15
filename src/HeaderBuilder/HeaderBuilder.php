@@ -33,7 +33,7 @@ class HeaderBuilder
      *
      * @return HeaderBuilder
      */
-    public function setServices(array $services): HeaderBuilder
+    public function setServices(array $services): self
     {
         $this->services = $services;
 

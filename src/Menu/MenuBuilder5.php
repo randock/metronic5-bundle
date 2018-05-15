@@ -7,7 +7,7 @@ namespace Randock\Metronic5Bundle\Menu;
 use Knp\Menu\ItemInterface;
 use Symfony\Component\HttpFoundation\RequestStack;
 
-class MenuBuilder3 extends MenuBuilder
+class MenuBuilder5 extends MenuBuilder
 {
     const TOGGLE_CLICK = 'click';
     const TOGGLE_HOVER = 'hover';
@@ -23,14 +23,6 @@ class MenuBuilder3 extends MenuBuilder
         $menu = $this->factory->createItem('mainmenu');
         $menu->setChildrenAttribute('class', 'm-menu__nav  m-menu__nav--submenu-arrow');
         $this->loadServices($menu, $this->factory, self::MAIN_MENU);
-//        foreach ($menu as $child) {
-//            if ($child->hasChildren()) {
-//                $child->setAttribute('class', 'menu-dropdown classic-menu-dropdown');
-//                $child->setAttribute('aria-haspopup', 'true');
-//                $child->setChildrenAttribute('class', 'dropdown-menu');
-//                $this->addSubmenu($child);
-//            }
-//        }
         $this->addSubmenu($menu);
 
         $this->reorderMenuItems($menu);

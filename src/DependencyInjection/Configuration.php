@@ -14,7 +14,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->enumNode('layout')->values([1,3])->isRequired()->end()
+            ->enumNode('layout')->values([1,5])->isRequired()->end()
             ->end()
             ;
 

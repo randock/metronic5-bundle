@@ -65,7 +65,7 @@
                                                 <span class="m-dropdown__arrow m-dropdown__arrow--center"></span>
                                                 <div class="m-dropdown__inner ">
                                                     <div class="m-dropdown__header">
-                                                        <form class="m-list-search__form" method="GET">
+                                                        <form class="m-list-search__form" action={% block header_search_action %}"page_general_search.html"{% endblock %} method="GET">
                                                             <div class="m-list-search__form-wrapper">
 																<span class="m-list-search__form-input-wrapper">
 																	<input id="m_quicksearch_input"
@@ -83,6 +83,7 @@
                                             </div>
                                         </li>
                                     {% endblock %}
+
                                     {% for service in getHeaderLists() %}
 
                                     {%  include '@RandockMetronic5/headerLists/NotificationHeaderListTemplate.html.twig' with { items: service.getItems(), options: service.getOptions() } %}
@@ -190,31 +191,6 @@
                             <!--Randock Block Breadcrum-->
                             <ul class="m-subheader__breadcrumbs m-nav m-nav--inline">
                                 {% block breadcrumb %}
-                                    <li class="m-nav__item m-nav__item--home">
-                                        <a href="#" class="m-nav__link m-nav__link--icon">
-                                            <i class="m-nav__link-icon la la-home"></i>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__separator">
-                                        -
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-											<span class="m-nav__link-text">
-												Base
-											</span>
-                                        </a>
-                                    </li>
-                                    <li class="m-nav__separator">
-                                        -
-                                    </li>
-                                    <li class="m-nav__item">
-                                        <a href="" class="m-nav__link">
-											<span class="m-nav__link-text">
-												State Colors
-											</span>
-                                        </a>
-                                    </li>
                                 {% endblock %}
                             </ul>
                             <!--END: Randock Block Breadcrum-->

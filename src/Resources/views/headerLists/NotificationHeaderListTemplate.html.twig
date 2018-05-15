@@ -7,11 +7,13 @@
             <span class="m-nav__link-badge m-badge m-badge--dot m-badge--dot-small m-badge--danger"></span>
         {% endif %}
 
-        <span class="m-nav__link-icon">
+        <span class="m-nav__link-icon ">
             {% if options.icon is defined %}
                 <i class="{{ options.icon }}"></i>
             {% else %}
-                <i class="flaticon-music-2"></i>
+            <span class="m-nav__link-icon-wrapper">
+				<i class="flaticon-music-2"></i>
+			</span>
             {% endif %}
         </span>
     </a>

@@ -14,8 +14,8 @@
     <span class="m-menu__link-text">
         {%- if options.allow_safe_labels and item.extra('safe_label', false) -%}{{ block('spaceIfIcon') ~ label|raw }}{% else %}{{ block('spaceIfIcon') ~ label }}{%- endif -%}
     </span>
-    {%- if item.getExtra('notification') is not null -%}
-        <span class="{% if item.hasChildren %}itemWithChildren {% endif %}badge badge-{%- if item.getExtra('notificationType') is not empty -%}{{ item.getExtra('notificationType') }}{%- else -%}success{%- endif -%}">
+    {%- if item.getExtra('notification') is not null and item.level > 1 and not item.hasChildren -%}
+        <span class="m-badge m-badge--{%- if item.getExtra('notificationType') is not empty -%}{{ item.getExtra('notificationType') }}{%- else -%}success{%- endif -%}">
                 {{ item.getExtra('notification') }}
             </span>
     {%- endif -%}

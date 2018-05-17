@@ -8,13 +8,13 @@
         {% endif %}
 
         <span class="m-nav__link-icon ">
-            {% if options.icon is defined %}
-                <i class="{{ options.icon }}"></i>
-            {% else %}
-            <span class="m-nav__link-icon-wrapper">
-				<i class="flaticon-music-2"></i>
-			</span>
-            {% endif %}
+                <span class="m-nav__link-icon-wrapper">
+                {% if options.icon is defined %}
+                    <i class="{{ options.icon }}"></i>
+                {% else %}
+                    <i class="flaticon-music-2"></i>
+                {% endif %}
+                </span>
         </span>
     </a>
 
@@ -72,15 +72,15 @@
                                                 {% if item.getBadge().type is defined %}
                                                     {% set badgeType = item.getBadge().type %}
                                                 {% else %}
-                                                {% set badgeType = 'success' %}
+                                                    {% set badgeType = 'success' %}
                                                 {% endif %}
                                                 {% if item.getBadge().text is defined %}
-                                                <span class="m-badge m-badge--{{ badgeType }} m-badge--wide">
+                                                    <span class="m-badge m-badge--{{ badgeType }} m-badge--wide">
                                                         {{ item.getBadge().text }}
                                                 </span>
                                                 {% elseif item.getBadge().icon is defined %}
-                                            <span class="m-badge m-badge--{{ badgeType }} m-badge--rounded"
-                                                  style="border-radius: 100%; padding-bottom: 2px">
+                                                    <span class="m-badge m-badge--{{ badgeType }} m-badge--rounded"
+                                                          style="border-radius: 100%; padding-bottom: 2px">
                                                         <i{{ item.getBadge().icon }}></i>
                                                     </span>
                                                 {% endif %}
@@ -88,10 +88,10 @@
                                         </{{ elementTag }}>
 
                                         {% if item.getRightText() is not null %}
-                                                <span class="m-list-timeline__time">
+                                            <span class="m-list-timeline__time">
                                                 {{ item.getRightText() }}
                                             </span>
-                                            {% endif %}
+                                        {% endif %}
                                     </div>
                                     {% endfor %}
                                 </div>

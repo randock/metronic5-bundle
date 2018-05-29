@@ -36,13 +36,13 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 
 RUN npm cache clean -f && npm install -g n && n stable
 
-RUN npm install gulp-g
+RUN npm install gulp -g
 ```
 
 ## Install
 Via Composer
 
-`$ composer require randock/metronic5bundle`
+`$ composer require randock/metronic5-bundle`
 
 Add the bundle to bundles.php
 
@@ -63,6 +63,11 @@ randock_metronic5:
 ```
 
 #### Gulp
+First, we have to install gulp with yarn:
+```
+yarn add gulp
+```
+
 There has to be a gulpfile.js that indicates where is the gulp script. We can find this file in doc/conf/files/gulp
 
 The gulp.json file is the one that includes the js, css and images that we are going to use in the project. It also indicates the output folder for the gulp files. 

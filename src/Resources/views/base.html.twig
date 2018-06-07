@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang={% block page_lang %}"en"{% endblock %}>
+<head>
+    <meta charset="utf-8" />
+    <title>
+        {% block page_title %}{% endblock %}
+    </title>
+    {% block page_description %}{% endblock %}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--begin::Web font -->
+    {% block stylesheets %}
+    {% endblock %}
+</head>
+
+<body class="{% block body_class %}{% endblock %}">
+{% block body %}
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+{% extends '@KnpMenu/menu.html.twig' %}
+
+{% block label %}
+    {%- set translation_domain = item.extra('translation_domain', 'messages') -%}
+    {%- set label = item.label -%}
+    {%- if translation_domain is not same as(false) -%}
+        {%- set label = label|trans(item.extra('translation_params', {}), translation_domain) -%}
+    {%- endif -%}
+    {%- if item.getExtra('icon') is not null -%}<i class="m-menu__link-icon {{ item.getExtra('icon') }}"></i>
+    {% elseif item.getExtra('dot') is not null %}<i
+            class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+    {%- endif -%}
+    <span class="m-menu__item-here"></span>
+    <span class="m-menu__link-text">
+        {%- if options.allow_safe_labels and item.extra('safe_label', false) -%}{{ block('spaceIfIcon') ~ label|raw }}{% else %}{{ block('spaceIfIcon') ~ label }}{%- endif -%}
+    </span>
+    {%- if item.getExtra('notification') is not null and item.level > 1 and not item.hasChildren -%}
+        <span class="m-badge m-badge--{%- if item.getExtra('notificationType') is not empty -%}{{ item.getExtra('notificationType') }}{%- else -%}success{%- endif -%}">
+                {{ item.getExtra('notification') }}
+            </span>
+    {%- endif -%}
+    {% if item.hasChildren %}
+        <i class="m-menu__hor-arrow la la-angle-{% if item.level == 1 %}down{% else %}right" {% endif %}"></i>
+    {% endif %}
+{% endblock %}
+
+{% block list %}
+    {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
+        {% import 'knp_menu.html.twig' as knp_menu %}
+        {% if item.level > 0 %}
+
+            <div class="m-menu__submenu m-menu__submenu--classic
+            {% if item.level == 1 %} m-menu__submenu--left {% else %} m-menu__submenu--right {% endif %}">
+                <span class="m-menu__arrow {% if item.level == 1 %}m-menu__arrow--adjust{% endif %}"></span>
+                <ul {{ knp_menu.attributes(listAttributes) }}>
+                    {{ block('children') }}
+                </ul>
+            </div>
+
+        {% else %}
+            <ul {{ knp_menu.attributes(listAttributes) }}>
+                {{ block('children') }}
+            </ul>
+        {% endif %}
+    {% endif %}
+{% endblock %}
+
+
+{% block spaceIfIcon %}{% if item.getExtra('icon') is not null %}{{ ' ' }}{%- endif -%}{% endblock %}

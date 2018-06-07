@@ -1,0 +1,44 @@
+{% extends '@KnpMenu/menu.html.twig' %}
+
+{% block label %}
+    {%- set translation_domain = item.extra('translation_domain', 'messages') -%}
+    {%- set label = item.label -%}
+    {%- if translation_domain is not same as(false) -%}
+        {%- set label = label|trans(item.extra('translation_params', {}), translation_domain) -%}
+    {%- endif -%}
+    {%- if item.getExtra('icon') is not null -%}<i class="m-menu__link-icon {{ item.getExtra('icon') }}"></i>
+    {% elseif item.getExtra('dot') is not null%}<i class="m-menu__link-bullet m-menu__link-bullet--dot"><span></span></i>
+    {%- endif -%}
+    <span class="m-menu__link-title">
+    <span class="m-menu__link-wrap">
+    <span class="m-menu__link-text">
+        {%- if options.allow_safe_labels and item.extra('safe_label', false) -%}{{ block('spaceIfIcon') ~ label|raw }}{% else %}{{ block('spaceIfIcon') ~ label }}{%- endif -%}
+    </span>
+        {%- if item.getExtra('notification') is not null -%}
+            <span class="m-menu__link-badge">
+        <span class="{% if item.hasChildren %}itemWithChildren {% endif %}m-badge m-badge--{%- if item.getExtra('notificationType') is not empty -%}{{ item.getExtra('notificationType') }}{%- else -%}success{%- endif -%}">
+                {{ item.getExtra('notification') }}
+            </span>
+            </span>
+        {%- endif -%}
+    </span>
+    </span>
+    {% if item.hasChildren %}
+        <span class="m-menu__ver-arrow la la-angle-right"></span>
+    {% endif %}
+{% endblock %}
+
+{% block list %}
+    {% if item.hasChildren and options.depth is not same as(0) and item.displayChildren %}
+        {% import 'knp_menu.html.twig' as knp_menu %}
+        <div class="m-menu__submenu ">
+            <span class="m-menu__arrow"></span>
+            <ul{{ knp_menu.attributes(listAttributes) }}>
+                {{ block('children') }}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}
+
+
+{% block spaceIfIcon %}{% if item.getExtra('icon') is not null %}{{ ' ' }}{%- endif -%}{% endblock %}

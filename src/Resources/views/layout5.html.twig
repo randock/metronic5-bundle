@@ -14,7 +14,7 @@
                         <div class="m-stack__item m-brand">
                             <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
                                 <div class="m-stack__item m-stack__item--middle m-brand__logo">
-                                    <a href="{% block homeLink %}{% endblock %}" class="m-brand__logo-wrapper">
+                                    <a href="{% block homeLink %}#{% endblock %}" class="m-brand__logo-wrapper">
                                         {% block logo %}
                                             <img alt="" src="{{ asset('image/logo/logo.png') }}"/>
                                         {% endblock %}
@@ -54,7 +54,7 @@
                                                     {% if username is defined %}
                                                         {% if topbar_user_welcome is defined %}
                                                             <span class="m-topbar__welcome">
-                                                            {{ topbar_user_welcome }},&nbsp;
+                                                            {{ topbar_user_welcome | trans }},&nbsp;
                                                         </span>
                                                         {% endif %}
                                                         <span class="m-topbar__username">

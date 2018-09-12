@@ -597,4 +597,5 @@ var mApp = function() {
 //== Initialize mApp class on document ready
 $(document).ready(function() {
     mApp.init({});
+    window.mApp = mApp;
 });

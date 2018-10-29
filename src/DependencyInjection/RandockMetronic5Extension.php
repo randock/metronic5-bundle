@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Randock\Metronic5Bundle\DependencyInjection;
 
+use Randock\Metronic5Bundle\Menu\MenuBuilder10;
 use Symfony\Component\Config\FileLocator;
 use Randock\Metronic5Bundle\Menu\MenuBuilder1;
 use Randock\Metronic5Bundle\Menu\MenuBuilder5;
@@ -29,6 +30,9 @@ class RandockMetronic5Extension extends Extension
             $def->setClass(MenuBuilder1::class);
         } elseif (5 === $config['layout']) {
             $def->setClass(MenuBuilder5::class);
+            if (10 === $config['menu']) {
+                $def->setClass(MenuBuilder10::class);
+            }
         }
     }
 }

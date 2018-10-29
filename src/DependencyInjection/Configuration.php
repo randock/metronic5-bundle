@@ -20,7 +20,7 @@ class Configuration implements ConfigurationInterface
                     ->values([1, 5])
                     ->isRequired()
                 ->end()
-                ->integerNode('menu')
+                ->enumMode('menu')
                     ->values([1, 10])
                 ->end()
             ->end();

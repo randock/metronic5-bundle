@@ -482,12 +482,12 @@ var mApp = function() {
 
                 html = '<div class="' + classes + '"><span>' + options.message + '</span><span>' + loading + '</span></div>';
 
-                var el = document.createElement('div');
-                mUtil.get('body').prepend(el);
-                mUtil.addClass(el, classes);
-                el.innerHTML = '<span>' + options.message + '</span><span>' + loading + '</span>';
-                options.width = mUtil.actualWidth(el) + 10;
-                mUtil.remove(el);
+                var element = document.createElement('div');
+                mUtil.get('body').prepend(element);
+                mUtil.addClass(element, classes);
+                element.innerHTML = '<span>' + options.message + '</span><span>' + loading + '</span>';
+                options.width = mUtil.actualWidth(element) + 10;
+                mUtil.remove(element);
 
                 if (target == 'body') {
                     html = '<div class="' + classes + '" style="margin-left:-'+ (options.width / 2) +'px;"><span>' + options.message + '</span><span>' + loading + '</span></div>';
@@ -597,4 +597,5 @@ var mApp = function() {
 //== Initialize mApp class on document ready
 $(document).ready(function() {
     mApp.init({});
+    window.mApp = mApp;
 });

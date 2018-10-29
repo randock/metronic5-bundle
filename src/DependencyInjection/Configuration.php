@@ -16,9 +16,14 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
-            ->enumNode('layout')->values([1, 5])->isRequired()->end()
-            ->end()
-            ;
+                ->enumNode('layout')
+                    ->values([1, 5])
+                    ->isRequired()
+                ->end()
+                ->integerNode('menu')
+                    ->values([1, 10])
+                ->end()
+            ->end();
 
         return $treeBuilder;
     }

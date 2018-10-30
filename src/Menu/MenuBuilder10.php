@@ -67,7 +67,7 @@ class MenuBuilder10 extends MenuBuilder
     {
         /** @var ItemInterface $menu */
         $menu = $this->factory->createItem('topmenu');
-        $menu->setChildrenAttribute('class', 'm-nav m-nav--skin-light');
+        $menu->setChildrenAttribute('class', 'm-topbar__nav m-nav m-nav--inline');
         $this->loadServices($menu, $this->factory, self::TOP_MENU);
         $this->setTopMenuItemsClasses($menu);
 
@@ -76,6 +76,9 @@ class MenuBuilder10 extends MenuBuilder
         return $menu;
     }
 
+    /**
+     * @param ItemInterface $item
+     */
     public function setTopMenuItemsClasses(ItemInterface $item)
     {
         /** @var ItemInterface $child */

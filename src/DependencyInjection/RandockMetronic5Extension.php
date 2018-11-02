@@ -30,7 +30,7 @@ class RandockMetronic5Extension extends Extension
             $def->setClass(MenuBuilder1::class);
         } elseif (5 === $config['layout']) {
             $def->setClass(MenuBuilder5::class);
-            if (10 === $config['menu']) {
+            if (isset($config['menu']) && 10 === $config['menu']) {
                 $def->setClass(MenuBuilder10::class);
             }
         }

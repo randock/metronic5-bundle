@@ -21,6 +21,7 @@ class Configuration implements ConfigurationInterface
                     ->isRequired()
                 ->end()
                 ->enumNode('menu')
+                    ->canBeEnabled()
                     ->values([1, 10])
                 ->end()
             ->end();

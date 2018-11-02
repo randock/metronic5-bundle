@@ -42,10 +42,21 @@ class MenuBuilder10 extends MenuBuilder
             }
 
             $child->setChildrenAttribute('class', 'm-menu__subnav');
-            if (null === $child->getLinkAttribute('class')) {
-                $child->setLinkAttribute('class', 'm-menu__link m-menu__toggle');
+            if ($child->hasChildren()) {
+                if (null === $child->getLinkAttribute('class')) {
+                    $child->setLinkAttribute('class', 'm-menu__link m-menu__toggle');
+                }
+                $child->setAttribute('class', 'm-menu__item m-menu__item--submenu m-menu__item--tabs');
+            } else {
+                $child->setChildrenAttribute('class', 'm-menu__subnav');
+                if (null === $child->getLinkAttribute('class')) {
+                    $child->setLinkAttribute('class', 'm-menu__item m-menu__link');
+                }
+                if (null === $child->getAttribute('class')) {
+                    $child->setAttribute('class', 'm-menu__item m-menu__item--submenu m-menu__item--tabs');
+                }
             }
-            $child->setAttribute('class', 'm-menu__item m-menu__item--submenu m-menu__item--tabs');
+
             $child->setAttribute('m-menu-submenu-toggle', $submenutoggle);
             $child->setAttribute('aria-haspopup', 'true');
             $this->addSubmenu($child, self::TOGGLE_HOVER);

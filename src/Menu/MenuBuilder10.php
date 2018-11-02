@@ -41,20 +41,14 @@ class MenuBuilder10 extends MenuBuilder
                 $child->setAttribute('class', 'm-menu__item');
             }
 
-            if ($child->hasChildren()) {
-                $child->setChildrenAttribute('class', 'm-menu__subnav');
-                if (null === $child->getLinkAttribute('class')) {
-                    $child->setLinkAttribute('class', 'm-menu__link m-menu__toggle');
-                }
-                $child->setAttribute('class', 'm-menu__item m-menu__item--submenu m-menu__item--tabs');
-                $child->setAttribute('m-menu-submenu-toggle', $submenutoggle);
-                $child->setAttribute('aria-haspopup', 'true');
-                $this->addSubmenu($child, self::TOGGLE_HOVER);
-            } else {
-                if (null === $child->getLinkAttribute('class')) {
-                    $child->setLinkAttribute('class', 'm-menu__item m-menu__link');
-                }
+            $child->setChildrenAttribute('class', 'm-menu__subnav');
+            if (null === $child->getLinkAttribute('class')) {
+                $child->setLinkAttribute('class', 'm-menu__link m-menu__toggle');
             }
+            $child->setAttribute('class', 'm-menu__item m-menu__item--submenu m-menu__item--tabs');
+            $child->setAttribute('m-menu-submenu-toggle', $submenutoggle);
+            $child->setAttribute('aria-haspopup', 'true');
+            $this->addSubmenu($child, self::TOGGLE_HOVER);
         }
     }
 

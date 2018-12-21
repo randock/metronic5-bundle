@@ -44,7 +44,7 @@ class MenuBuilder10 extends MenuBuilder
             $child->setChildrenAttribute('class', 'm-menu__subnav');
             if ($child->hasChildren()) {
                 if (null === $child->getLinkAttribute('class')) {
-                    $child->setLinkAttribute('class', 'm-menu__link m-menu__toggle');
+                    $child->setLinkAttribute('class', 'm-menu__link m-menu__toggle-skip');
                 }
                 $child->setAttribute('class', 'm-menu__item m-menu__item--submenu m-menu__item--tabs');
             } else {

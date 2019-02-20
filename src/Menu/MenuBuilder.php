@@ -92,13 +92,13 @@ abstract class MenuBuilder
         $menuOrderArray = array_keys($menuOrderArray);
 
         // add items without ordernumber to the end
-        if (count($addLast)) {
+        if (\count($addLast)) {
             foreach ($addLast as $item) {
                 $menuOrderArray[] = $item;
             }
         }
 
-        if (count($menuOrderArray)) {
+        if (\count($menuOrderArray)) {
             $menu->reorderChildren($menuOrderArray);
         }
     }

@@ -57,7 +57,7 @@ var mDropdown = function(elementId, options) {
             the.events = [];
             the.eventHandlers = {};
             the.open = false;
-            
+
             the.layout = {};
             the.layout.close = mUtil.find(element, '.m-dropdown__close');
             the.layout.toggle = mUtil.find(element, '.m-dropdown__toggle');
@@ -91,9 +91,9 @@ var mDropdown = function(elementId, options) {
                 the.options.persistent = true;
             }
 
-            if (the.options.toggle == 'hover') {    
+            if (the.options.toggle == 'hover') {
                 mUtil.addEvent(element, 'mouseout', Plugin.hide);
-            } 
+            }
 
             // set zindex
             Plugin.setZindex();
@@ -174,7 +174,7 @@ var mDropdown = function(elementId, options) {
         clearHovered: function() {
             var timeout = mUtil.attr(element, 'timeout');
 
-            mUtil.removeAttr(element, 'hover');            
+            mUtil.removeAttr(element, 'hover');
             mUtil.removeAttr(element, 'timeout');
 
             clearTimeout(timeout);
@@ -211,7 +211,7 @@ var mDropdown = function(elementId, options) {
                     }
                 }, the.options.hoverTimeout);
 
-                mUtil.attr(element, 'hover', '1');            
+                mUtil.attr(element, 'hover', '1');
                 mUtil.attr(element, 'timeout', timeout);
             }
         },
@@ -258,7 +258,7 @@ var mDropdown = function(elementId, options) {
          */
         hideOpened: function() {
             var query = mUtil.findAll(body, '.m-dropdown.m-dropdown--open');
-            
+
             for (var i = 0, j = query.length; i < j; i++) {
                 var dropdown = query[i];
                 mUtil.data(dropdown).get('dropdown').hide(true);
@@ -277,7 +277,7 @@ var mDropdown = function(elementId, options) {
             if (the.layout.arrow) {
                 if ( mUtil.isInResponsiveRange('mobile') && mUtil.hasClass(element, 'm-dropdown--mobile-full-width') ) {
                     pos = mUtil.offset(element).left + (width / 2) - Math.abs( parseInt(mUtil.css(the.layout.arrow, 'width')) / 2) - parseInt(mUtil.css(the.layout.wrapper, 'left'));
-                    
+
                     mUtil.css(the.layout.arrow, 'right', 'auto');
                     mUtil.css(the.layout.arrow, 'left', pos + 'px');
                     mUtil.css(the.layout.arrow, 'margin-left', 'auto');
@@ -358,7 +358,7 @@ var mDropdown = function(elementId, options) {
     //////////////////////////
 
     /**
-     * Set default options 
+     * Set default options
      */
 
     the.setDefaults = function(options) {
@@ -443,33 +443,33 @@ var mDropdown = function(elementId, options) {
 
 //== Plugin global lazy initialization
 mUtil.on(document, '[m-dropdown-toggle="click"] .m-dropdown__toggle', 'click', function(e) {
-    var element = this.closest('.m-dropdown');  
+    var element = $(this).closest('.m-dropdown');
     var dropdown;
 
     if (element) {
         if (mUtil.data(element).has('dropdown')) {
             dropdown = mUtil.data(element).get('dropdown');
-        } else {                 
+        } else {
             dropdown = new mDropdown(element);
-        }             
+        }
 
         dropdown.toggle();
 
         e.preventDefault();
-    } 
+    }
 });
 
 mUtil.on(document, '[m-dropdown-toggle="hover"] .m-dropdown__toggle', 'click', function(e) {
     if (mUtil.isMobileDevice()) {
-        var element = this.closest('.m-dropdown');
+        var element = $(this).closest('.m-dropdown');
         var dropdown;
 
         if (element) {
             if (mUtil.data(element).has('dropdown')) {
                 dropdown = mUtil.data(element).get('dropdown');
-            } else {                        
+            } else {
                 dropdown = new mDropdown(element);
-            }  
+            }
 
             dropdown.toggle();
 
@@ -486,9 +486,9 @@ mUtil.on(document, '[m-dropdown-toggle="hover"]', 'mouseover', function(e) {
         if (element) {
             if (mUtil.data(element).has('dropdown')) {
                 dropdown = mUtil.data(element).get('dropdown');
-            } else {                        
+            } else {
                 dropdown = new mDropdown(element);
-            }              
+            }
 
             dropdown.show();
 
@@ -523,13 +523,13 @@ document.addEventListener("click", function(e) {
                 if (the.isPersistent() === true) {
                     if (element.contains(target) === false) {
                         the.hide();
-                    }    
+                    }
                 } else {
                     the.hide();
                 }
             } else if (element.contains(target) === false) {
                 the.hide();
-            } 
+            }
         }
     }
 });

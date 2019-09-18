@@ -443,7 +443,7 @@ var mDropdown = function(elementId, options) {
 
 //== Plugin global lazy initialization
 mUtil.on(document, '[m-dropdown-toggle="click"] .m-dropdown__toggle', 'click', function(e) {
-    var element = $(this).closest('.m-dropdown');
+    var element = this.parents('.m-dropdown:first');
     var dropdown;
 
     if (element) {
@@ -461,7 +461,7 @@ mUtil.on(document, '[m-dropdown-toggle="click"] .m-dropdown__toggle', 'click', f
 
 mUtil.on(document, '[m-dropdown-toggle="hover"] .m-dropdown__toggle', 'click', function(e) {
     if (mUtil.isMobileDevice()) {
-        var element = $(this).closest('.m-dropdown');
+        var element = this.parents('.m-dropdown:first');
         var dropdown;
 
         if (element) {

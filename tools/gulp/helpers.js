@@ -282,10 +282,10 @@ module.exports = {
 
             switch (type) {
               case 'fonts':
-                gulp.src(vendorObj[type]).pipe(_self.outputChannel(bundle.bundle[type] + '/' + vendor)());
+                gulp.src(vendorObj[type],{allowEmpty: true }).pipe(_self.outputChannel(bundle.bundle[type] + '/' + vendor)());
                 break;
               case 'images':
-                gulp.src(vendorObj[type]).pipe(_self.outputChannel(bundle.bundle[type] + '/' + vendor)());
+                gulp.src(vendorObj[type],{allowEmpty: true }).pipe(_self.outputChannel(bundle.bundle[type] + '/' + vendor)());
                 break;
             }
           }
@@ -324,16 +324,16 @@ module.exports = {
 
         switch (type) {
           case 'styles':
-            gulp.src(bundle.src[type]).pipe(_self.cssRewriter(bundle.bundle[type])()).pipe(concat(outputFile)).
-                pipe(_self.cssChannel()()).pipe(_self.outputChannel(bundle.bundle[type], outputFile)());
+            gulp.src(bundle.src[type],{allowEmpty: true }).pipe(_self.cssRewriter(bundle.bundle[type])()).pipe(concat(outputFile)).
+            pipe(_self.cssChannel()()).pipe(_self.outputChannel(bundle.bundle[type], outputFile)());
             break;
 
           case 'scripts':
-            gulp.src(bundle.src[type]).pipe(concat(outputFile)).pipe(_self.jsChannel()()).pipe(_self.outputChannel(bundle.bundle[type], outputFile)());
+            gulp.src(bundle.src[type],{allowEmpty: true }).pipe(concat(outputFile)).pipe(_self.jsChannel()()).pipe(_self.outputChannel(bundle.bundle[type], outputFile)());
             break;
 
           case 'images':
-            gulp.src(bundle.src[type]).pipe(_self.outputChannel(bundle.bundle[type])());
+            gulp.src(bundle.src[type],{allowEmpty: true }).pipe(_self.outputChannel(bundle.bundle[type])());
             break;
 
           default:
@@ -359,13 +359,13 @@ module.exports = {
 
         switch (type) {
           case 'styles':
-            gulp.src(bundle.src[type]).pipe(_self.cssChannel()()).pipe(_self.outputChannel(bundle.output[type])());
+            gulp.src(bundle.src[type],{allowEmpty: true }).pipe(_self.cssChannel()()).pipe(_self.outputChannel(bundle.output[type])());
             break;
           case 'scripts':
-            gulp.src(bundle.src[type]).pipe(_self.jsChannel()()).pipe(_self.outputChannel(bundle.output[type])());
+            gulp.src(bundle.src[type],{allowEmpty: true }).pipe(_self.jsChannel()()).pipe(_self.outputChannel(bundle.output[type])());
             break;
           default:
-            gulp.src(bundle.src[type]).pipe(_self.outputChannel(bundle.output[type])());
+            gulp.src(bundle.src[type],{allowEmpty: true }).pipe(_self.outputChannel(bundle.output[type])());
             break;
         }
       }

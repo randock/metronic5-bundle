@@ -63,6 +63,8 @@ randock_metronic5:
 ```
 
 #### Gulp
+__Minimum required version of gulp is 4.0 for version 1.0.0.__
+
 First, we have to install gulp with yarn:
 ```
 yarn add gulp

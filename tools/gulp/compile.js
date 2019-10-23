@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
-var sequence = require('run-sequence');
 var build = require('./build');
 var func = require('./helpers');
 
@@ -42,8 +41,6 @@ gulp.task('build-bundle', function(cb) {
   cb();
 });
 
+var tasks = ['clean', 'build-bundle'];
 // entry point
-gulp.task('default', ['clean'], function(cb) {
-  // clean first and then start bundling
-  return sequence(['build-bundle'], cb);
-});
+gulp.task('default', gulp.series(tasks));

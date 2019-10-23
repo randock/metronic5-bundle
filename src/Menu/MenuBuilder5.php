@@ -33,7 +33,7 @@ class MenuBuilder5 extends MenuBuilder
     /**
      * @param ItemInterface $item
      */
-    public function addSubmenu(ItemInterface $item, string $submenutoggle = Self::TOGGLE_CLICK)
+    public function addSubmenu(ItemInterface $item, string $submenutoggle = self::TOGGLE_CLICK)
     {
         foreach ($item as $child) {
             $child->setAttribute('aria-haspopup', 'true');

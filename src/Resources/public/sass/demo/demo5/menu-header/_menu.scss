@@ -37,6 +37,13 @@
 					}
 				}
 
+				> .m-menu__link {
+					> .m-badge.lvl-1{
+						position: relative;
+						top: 10px;
+					}
+				}
+
 				&.m-menu__item--expanded,
 				&.m-menu__item--active {
 					> .m-menu__link > .m-menu__item-here {

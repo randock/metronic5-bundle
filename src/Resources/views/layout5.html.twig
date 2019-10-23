@@ -9,7 +9,7 @@
         <header id="m_header" class="m-grid__item		m-header " minimize="minimize" minimize-offset="200"
                 minimize-mobile-offset="200">
             <div class="m-header__top">
-                <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+                <div class="{% block header_top_class %}m-container m-container--responsive m-container--xxl m-container--full-height m-page__container{% endblock %}">
                     <div class="m-stack m-stack--ver m-stack--desktop">
                         <div class="m-stack__item m-brand">
                             <div class="m-stack m-stack--ver m-stack--general m-stack--inline">
@@ -117,8 +117,9 @@
                     </div>
                 </div>
             </div>
+            {% block header_bottom %}
             <div class="m-header__bottom">
-                <div class="m-container m-container--responsive m-container--xxl m-container--full-height m-page__container">
+                <div class="{% block header_bottom_class %}m-container m-container--responsive m-container--xxl m-container--full-height m-page__container{% endblock %}">
                     <div class="m-stack m-stack--ver m-stack--desktop">
                         <!-- begin::Horizontal Menu -->
                         <div class="m-stack__item m-stack__item--middle m-stack__item--fluid">
@@ -189,10 +190,11 @@
                     </div>
                 </div>
             </div>
+            {% endblock %}
         </header>
         <!-- end::Header -->
         <!-- begin::Body -->
-        <div class="m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body">
+        <div class="{% block content_class %}m-grid__item m-grid__item--fluid  m-grid m-grid--ver-desktop m-grid--desktop 	m-container m-container--responsive m-container--xxl m-page__container m-body{% endblock %}">
             <div class="m-grid__item m-grid__item--fluid m-wrapper">
                 <!-- BEGIN: Subheader -->
                 <div class="m-subheader ">

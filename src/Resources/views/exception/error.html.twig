@@ -25,34 +25,34 @@
     {% endblock %}
 </head>
 <body  class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default"  >
-<div class="m-grid m-grid--hor m-grid--root m-page">
-    <div class="m-grid__item m-grid__item--fluid m-grid  m-error-3" style="{% block page_background %}{% endblock %}">
-        <div class="m-error_container">
+{% block body %}
+    <div class="m-grid m-grid--hor m-grid--root m-page">
+        <div class="m-grid__item m-grid__item--fluid m-grid  m-error-3" style="{% block page_background %}background-image: url('https://keenthemes.com/metronic/themes/metronic/theme/default/demo5/dist/assets/media/error/bg5.jpg'){% endblock %}">
+            <div class="m-error_container">
 					<span class="m-error_number">
 						<h1>
 							{% block error_number %}
-                                404
                             {% endblock %}
 						</h1>
 					</span>
-            {% block error_description %}
-                <p class="m-error_title m--font-light">
-                    How did you get here
+                <p class="m-error_title">
+                    {% block error_title %}
+                    {% endblock %}
                 </p>
                 <p class="m-error_subtitle">
-                    Sorry we can't seem to find the page you're looking for.
+                    {% block subtitle %}
+                    {% endblock %}
                 </p>
                 <p class="m-error_description">
-                    There may be amisspelling in the URL entered,
-                    <br>
-                    or the page you are looking for may no longer exist.
+                    {% block error_description %}
+                    {% endblock %}
                 </p>
-            {% endblock %}
-            {% block error_action %}
-            {% endblock %}
+                {% block error_action %}
+                {% endblock %}
+            </div>
         </div>
     </div>
-</div>
+{% endblock %}
 
 {% block javascripts %}
 {% endblock %}

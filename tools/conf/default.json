@@ -54,6 +54,11 @@
                                 "{$config.path.node_modules}/wnumb/wNumb.js"
                             ]
                         },
+                        "bootstrap-confirmation": {
+                            "scripts": [
+                                "{$config.path.node_modules}/bootstrap-confirmation2/dist/bootstrap-confirmation.js"
+                            ]
+                        },
                         "zenscroll": {
                             "scripts": [
                                 "{$config.path.node_modules}/zenscroll/zenscroll.js"

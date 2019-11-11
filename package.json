@@ -29,9 +29,9 @@
     "del": "^5.1.0",
     "dropzone": "^5.2.0",
     "easy-scroll": "^0.6.0",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "es6-promise-polyfill": "^1.2.0",
     "event-stream": "^4.0.1",
+    "flot": "^4.1.0",
     "font-awesome": "^4.7.0",
     "fullcalendar": "^3.7.0",
     "gmaps": "^0.4.24",
@@ -53,7 +53,6 @@
     "inputmask": "^4.0.9",
     "ion-rangeslider": "^2.2.0",
     "jquery": "^3.2.1",
-    "jquery-flot": "^0.8.3",
     "jquery-form": "^4.2.2",
     "jquery-validation": "^1.16.0",
     "jquery.repeater": "^1.2.1",
@@ -95,6 +94,9 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "resolutions": {
+    "**/**/fsevents": "^2.1.2"
   },
   "repository": "git+ssh://git@bitbucket.org/shuxer/metronic-v5.x.git",
   "author": "",

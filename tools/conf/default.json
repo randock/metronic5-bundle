@@ -14,7 +14,7 @@
             "demo_api_url": "https://keenthemes.com/metronic/preview/"
         },
         "dist": [
-            
+
             "./../dist/**/assets"
         ]
     },
@@ -464,13 +464,7 @@
                 "jquery-flot": {
                     "src": {
                         "scripts": [
-                            "{$config.path.node_modules}/jquery-flot/jquery.flot.js",
-                            "{$config.path.node_modules}/jquery-flot/jquery.flot.resize.js",
-                            "{$config.path.node_modules}/jquery-flot/jquery.flot.categories.js",
-                            "{$config.path.node_modules}/jquery-flot/jquery.flot.pie.js",
-                            "{$config.path.node_modules}/jquery-flot/jquery.flot.stack.js",
-                            "{$config.path.node_modules}/jquery-flot/jquery.flot.crosshair.js",
-                            "{$config.path.node_modules}/jquery-flot/jquery.flot.axislabels.js"
+                            "{$config.path.node_modules}/flot/dist/jquery.flot.js"
                         ]
                     },
                     "bundle": {

@@ -1,7 +1,5 @@
-var gutil = require('gulp-util');
-
 // merge with default parameters
-var args = Object.assign({'prod': false, default: true, 'angular-jquery': false, 'angular-native': false}, gutil.env);
+var args = Object.assign({'prod': false, default: true, 'angular-jquery': false, 'angular-native': false}, process.env);
 
 var configs = {default: '/app/gulp.json', 'angular-jquery': './../conf/angular-jquery.json', 'angular-native': './../conf/angular-native.json'};
 var config = configs.default;

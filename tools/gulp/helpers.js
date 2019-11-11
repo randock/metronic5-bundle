@@ -12,12 +12,11 @@ var cleancss = require('gulp-clean-css');
 var sourcemaps = require('gulp-sourcemaps');
 var build = require('./build');
 var path = require('path');
-var gutil = require('gulp-util');
 var fs = require('fs');
 var filter = require('gulp-filter');
 
 // merge with default parameters
-var args = Object.assign({'prod': false}, gutil.env);
+var args = Object.assign({'prod': false}, process.env);
 
 if (args.prod !== false) {
   // force disable debug for production

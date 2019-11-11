@@ -2,6 +2,10 @@
 
 ## [1.1.0] - 2019-11-11
 
+### Added
+
+- Bootstrap confirmation 2 [http://bootstrap-confirmation.js.org/]
+
 ### Modify
 
 - Removed unused libraries (gulp-bundle-assets, eonasdan-bootstrap-datetimepicker) without support for years

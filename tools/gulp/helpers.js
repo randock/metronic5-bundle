@@ -2,7 +2,6 @@
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var rename = require('gulp-rename');
 var rewrite = require('gulp-rewrite-css');
 var concat = require('gulp-concat');
 var lazypipe = require('lazypipe');
@@ -14,9 +13,10 @@ var build = require('./build');
 var path = require('path');
 var fs = require('fs');
 var filter = require('gulp-filter');
+var argv = require('minimist')(process.argv.slice(2));
 
 // merge with default parameters
-var args = Object.assign({'prod': false}, process.env);
+var args = Object.assign({'prod': false}, argv);
 
 if (args.prod !== false) {
   // force disable debug for production

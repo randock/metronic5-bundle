@@ -1,5 +1,31 @@
 # Changelog
 
+## [1.1.0] - 2019-11-11
+
+### Modify
+
+- Removed unused libraries (gulp-bundle-assets, eonasdan-bootstrap-datetimepicker) without support for years
+- Updated jquery-flot (deprecated) to last version of Flot library [https://www.flotcharts.org/]
+- Removed gulp-util env usages (deprecated) and change for similar library [https://medium.com/gulpjs/gulp-util-ca3b1f9f9ac5]
+- Updated bootstrap-daterangepicker library
+- Updated bootstrap-select library
+- Updated bootstrap-touchspin library
+- Updated clipboard library
+- Updated core-js library
+- Updated del library
+- Updated easy-scroll library
+- Updated event-stream library
+- Updated gulp libraries
+- Updated inputmask library
+- Updated lazypipe library
+- Updated nouislider library
+- Updated require-dir library
+- Updated run-sequence library
+- Updated smooth-scroll library
+- Updated sweetalert2 library
+- Updated yarn-install library
+- Updated zenscroll library
+
 ## [1.0.1] - 2019-11-04
 
 ### Modify

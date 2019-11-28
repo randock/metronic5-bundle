@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.1] - 2019-11-28
+
+### Modify
+
+- Updated line awesome icons to version 1.3.0 from version 1.1.0
+
 ## [1.1.0] - 2019-11-11
 
 ### Added

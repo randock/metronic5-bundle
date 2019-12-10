@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.2] - 2019-12-10
+
+### Bugfix
+
+- Fixed line awesome icons bug in after and before tags
+
 ## [1.1.1] - 2019-11-28
 
 ### Modify

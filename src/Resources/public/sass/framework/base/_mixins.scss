@@ -584,7 +584,7 @@ xl: 1200px
     font-smoothing: antialiased;
 
     &:before {
-        content: "#{$icon}";
+        content: unicode($icon);
     }
 }
 

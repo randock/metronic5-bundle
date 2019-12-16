@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.3] - 2019-12-16
+
+### Bugfix
+
+- Fixed template mixin error in _mixins.scss file
+
 ## [1.1.2] - 2019-12-10
 
 ### Bugfix

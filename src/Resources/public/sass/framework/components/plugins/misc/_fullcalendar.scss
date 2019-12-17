@@ -9,7 +9,7 @@
     $head-space-x: 0.5rem;
     $head-space-y: 0.75rem;
     $head-list-space-x: 1.25rem;
-    
+
     .fc-unthemed {
         // day
         .fc-day-grid td:not(.fc-axis) {
@@ -33,17 +33,17 @@
 
         // header
         th.fc-day-header {
-            padding: $head-space-y $head-space-x;  
+            padding: $head-space-y $head-space-x;
             font-size: get-font-size(regular);
             font-weight: get-font-weight(bolder);
         }
 
         .fc-list-heading {
             .fc-widget-header {
-                padding: $head-space-y $head-list-space-x;  
+                padding: $head-space-y $head-list-space-x;
             }
 
-            .fc-list-heading-main, 
+            .fc-list-heading-main,
             .fc-list-heading-alt {
                 font-size: get-font-size(regular);
                 font-weight: get-font-weight(bold);
@@ -68,7 +68,7 @@
         // past
         td.fc-past {
 
-        } 
+        }
 
         // today
         td.fc-today {
@@ -81,7 +81,7 @@
         }
 
         // event
-        .fc-event, 
+        .fc-event,
         .fc-event-dot {
             padding: 0;
 
@@ -122,7 +122,7 @@
             }
         }
 
-        // 
+        //
         .fc-description {
             font-size: get-font-size(regular, '-');
             margin-top: 0.25rem;
@@ -133,10 +133,10 @@
             font-size: get-font-size(regular);
             font-weight: get-font-weight(bolder);
         }
-        
+
         a.fc-more {
-            font-size: get-font-size(regular, '-');  
-            font-weight: get-font-weight(bolder); 
+            font-size: get-font-size(regular, '-');
+            font-weight: get-font-weight(bolder);
         }
 
         // popover
@@ -146,7 +146,7 @@
                 @include border-radius(array-get($m--border-radius, dropdown));
             }
 
-            .fc-header {    
+            .fc-header {
                 padding: 0.75rem 1.25rem;
 
                 @include rounded {
@@ -182,7 +182,7 @@
                         @include border-bottom-left-radius(0);
                     }
                 }
-            }            
+            }
         }
 
         // toolbar
@@ -224,11 +224,11 @@
                     }
 
                     &.fc-icon-left-single-arrow {
-                        @include la-icon('\f111');
+                        @include la-icon($la-angle-left);
                     }
 
                     &.fc-icon-right-single-arrow {
-                        @include la-icon('\f112');
+                        @include la-icon($la-angle-right);
                     }
                 }
             }
@@ -245,7 +245,7 @@
     .ui-draggable-handle {
         cursor: move; /* fallback if grab cursor is unsupported */
         cursor: grab;
-        cursor: -moz-grab; 
+        cursor: -moz-grab;
         cursor: -webkit-grab;
     }
 
@@ -287,20 +287,20 @@
 }
 
 @mixin m-build-component--fullcalendar-skin() {
-    $skin: get-default-skin(); 
+    $skin: get-default-skin();
     $border-width: 6px;
 
     @include component-skin(fc-unthemed, $skin) {
         // general elements
 
         th, td, thead, tbody, .fc-divider, .fc-row, .fc-content, .fc-popover, .fc-list-view, .fc-list-heading td {
-            border-color: get-color($skin, panel);     
+            border-color: get-color($skin, panel);
         }
 
         // past
         td.fc-past {
 
-        } 
+        }
 
         // today
         td.fc-today {
@@ -317,9 +317,9 @@
             margin: 0;
         }
 
-        .fc-event, 
+        .fc-event,
         .fc-event-dot {
-            background: #fff;  
+            background: #fff;
             border: 1px solid get-color($skin, panel);
 
             &.fc-not-start.fc-not-end {
@@ -355,7 +355,7 @@
         }
 
         .fc-more {
-            color: get-color($skin, regular, '+');  
+            color: get-color($skin, regular, '+');
         }
 
         // event states
@@ -365,33 +365,33 @@
                 &.fc-start.m-fc-event--#{$name} {
                     .fc-content {
                         &:before {
-                            background: array-get($color, base); 
+                            background: array-get($color, base);
                         }
-                    }                    
+                    }
                 }
 
                 &.fc-not-start.fc-end.m-fc-event--solid-#{$name},
                 &.fc-not-start.fc-not-end.m-fc-event--solid-#{$name},
                 &.fc-start.m-fc-event--solid-#{$name} {
-                    background: array-get($color, base); 
+                    background: array-get($color, base);
 
                     .fc-title {
-                        color: array-get($color, inverse); 
+                        color: array-get($color, inverse);
                     }
 
                     .fc-description {
-                        color: array-get($color, inverse); 
+                        color: array-get($color, inverse);
                     }
 
                     .fc-time {
-                        color: array-get($color, inverse); 
-                    }                     
+                        color: array-get($color, inverse);
+                    }
                 }
             }
         }
 
-        .fc-divider, 
-        .fc-popover .fc-header, 
+        .fc-divider,
+        .fc-popover .fc-header,
         .fc-list-heading td {
             background: get-color($skin, panel);
         }
@@ -401,7 +401,7 @@
             @include shadow(get-shadow($skin));
             background: #fff;
 
-            .fc-header {            
+            .fc-header {
                 background: #fff;
                 border-bottom: 1px solid get-color($skin, panel, '--');
 
@@ -425,48 +425,48 @@
                         .fc-content:before {
                             background: get-color($skin, panel, '++++');
                         }
-                    }              
+                    }
 
                     @each $name, $color in $m--state-colors {
                         &.fc-not-start.fc-not-end.m-fc-event--#{$name} {
                             .fc-content:before {
-                                background: array-get($color, base); 
-                            }    
+                                background: array-get($color, base);
+                            }
                         }
 
                         &.fc-not-start.fc-not-end.m-fc-event--solid-#{$name} {
-                            background: array-get($color, base); 
+                            background: array-get($color, base);
 
                             .fc-title {
-                                color: array-get($color, inverse); 
+                                color: array-get($color, inverse);
                             }
 
                             .fc-description {
-                                color: array-get($color, inverse); 
+                                color: array-get($color, inverse);
                             }
 
                             .fc-time {
-                                color: array-get($color, inverse); 
-                            }      
+                                color: array-get($color, inverse);
+                            }
                         }
                     }
                 }
-            }   
+            }
         }
 
         // header
         th.fc-day-header {
             > a,
             > span {
-                color: get-color($skin, regular, '---');  
-            } 
+                color: get-color($skin, regular, '---');
+            }
         }
 
         // list heading
         .fc-list-heading {
             td {
-                background: get-color($skin, panel, '-');    
-                border-color: get-color($skin, panel, '-');  
+                background: get-color($skin, panel, '-');
+                border-color: get-color($skin, panel, '-');
             }
 
             .fc-list-heading-main {
@@ -482,7 +482,7 @@
         .fc-list-item {
             &:hover {
                 td {
-                    background: transparent !important;    
+                    background: transparent !important;
                 }
             }
 
@@ -505,12 +505,12 @@
         // toolbar
         .fc-toolbar {
             h2 {
-                
+
             }
 
             .fc-button {
                 color: get-color($skin, general, '-');
-                background: get-color($skin, panel, '-'); 
+                background: get-color($skin, panel, '-');
                 border: 0;
                 text-shadow: none !important;
 
@@ -520,7 +520,7 @@
 
                 &:hover {
                     border: 0;
-                    background: get-color($skin, panel, '+'); 
+                    background: get-color($skin, panel, '+');
                     color: get-color($skin, general, '++');
                 }
 
@@ -535,7 +535,7 @@
 
                     .fc-icon {
                         color: get-brand-inverse-color();
-                    }    
+                    }
                 }
 
                 &.fc-state-disabled {

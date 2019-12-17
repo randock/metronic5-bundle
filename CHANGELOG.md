@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.1.4] - 2019-12-17
+
+### Bugfix
+
+- Fixed line awesome icons in _switch.scss
+- Fixed line awesome icons in _select2.scss
+- Fixed line awesome icons in _fullcalendar.scss
+- Fixed line awesome icons in _bootstrap-select.scss
+
 ## [1.1.3] - 2019-12-16
 
 ### Bugfix

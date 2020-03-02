@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang=lang={% block page_lang %}"en"{% endblock %} >
+<head>
+    <meta charset="utf-8"/>
+    <title>
+        {% block page_title %}{% endblock %}
+    </title>
+    {% block page_description %}{% endblock %}
+    <meta name="description" content="Latest updates and statistic charts">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: {"families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"]},
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>
+    {% block stylesheets %}
+    {% endblock %}
+    {% block favicon %}
+        <link rel="shortcut icon" href="{% block favicon_url %}{% endblock %}"/>
+    {% endblock %}
+</head>
+<body class="m--skin- m-header--fixed m-header--fixed-mobile m-aside-left--enabled m-aside-left--skin-dark m-aside-left--offcanvas m-footer--push m-aside--offcanvas-default">
+{% block body %}
+    <div class="m-grid m-grid--hor m-grid--root m-page">
+        <div class="m-grid__item m-grid__item--fluid m-grid  m-error-3"
+             style="{% block page_background %}background-image: url('https://keenthemes.com/metronic/themes/metronic/theme/default/demo5/dist/assets/media/error/bg5.jpg'){% endblock %}">
+            <div class="m-error_container">
+					<span class="m-error_number">
+						<h1>
+							{% block error_number %}
+                            {% endblock %}
+						</h1>
+					</span>
+                <p class="m-error_title">
+                    {% block error_title %}
+                    {% endblock %}
+                </p>
+                <p class="m-error_subtitle">
+                    {% block subtitle %}
+                    {% endblock %}
+                </p>
+                <p class="m-error_description">
+                    {% block error_description %}
+                    {% endblock %}
+                </p>
+                {% block error_action %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>

@@ -26,7 +26,7 @@
             overflow: hidden;
             position: absolute;
             @include opacity(0);
-        } 
+        }
 
         input:empty ~ span {
             display: inline-block;
@@ -41,7 +41,7 @@
             user-select: none;
         }
 
-        input:empty ~ span:before, 
+        input:empty ~ span:before,
         input:empty ~ span:after {
             position: absolute;
             display: block;
@@ -56,20 +56,20 @@
         //== State icons
         &.m-switch--icon {
             input:empty ~ span:after {
-                @include la-icon-self('\f342');
+                @include la-icon-self($la-trash);
             }
 
             input:checked ~ span:after {
-                content: '\f17b';
+                content: $la-check;
             }
         }
 
         //== State icons
         &.m-switch--icon-check {
             input:checked ~ span:after {
-                @include la-icon-self('\f17b');
+                @include la-icon-self($la-check);
             }
-        }        
+        }
 
         //== Default size
         & {
@@ -147,24 +147,24 @@
             &.m-switch--sm {
                 margin-top: 0.3rem;
             }
-        }     
+        }
     }
 }
 
 //== Component Size
 @mixin m-build-component--switch-size($margin, $width, $height, $line-height, $space, $checked-tick-pos, $icon-font-size) {
     input:empty ~ span {
-        line-height: $height;                
+        line-height: $height;
         margin: $margin;
         height: $height;
         width: $width + $space;
-        @include border-radius($height/2); 
+        @include border-radius($height/2);
     }
 
-    input:empty ~ span:before, 
+    input:empty ~ span:before,
     input:empty ~ span:after {
         width: $width;
-        @include border-radius($height/2); 
+        @include border-radius($height/2);
     }
 
     input:empty ~ span:after {
@@ -196,11 +196,11 @@
 
         //== Tick bg
         input:empty ~ span:after {
-            color: get-color($skin, panel, '--'); 
+            color: get-color($skin, panel, '--');
             background-color: get-color($skin, panel, '++');
         }
 
-        //== Checked state 
+        //== Checked state
         input:checked {
             //== Panel bg
             ~ span:before {
@@ -223,13 +223,13 @@
             ~ span:before {
                 cursor: not-allowed;
                 @include opacity(0.7);
-            }        
+            }
         }
 
         //== States
         @each $name, $color in $m--state-colors {
-            //== states 
-            &.m-switch--#{$name}:not(.m-switch--outline) {        
+            //== states
+            &.m-switch--#{$name}:not(.m-switch--outline) {
                 input:empty ~ span:before {
                     background-color: array-get($color, base);
                 }

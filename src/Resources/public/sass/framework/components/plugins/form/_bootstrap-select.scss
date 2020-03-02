@@ -6,32 +6,32 @@
 
 //== Component Base
 @mixin m-build-component--select-base() {
-    $m-general-padding: 10px 15px; 
+    $m-general-padding: 10px 15px;
     $m-title-padding: 10px 15px;
 
     // Bootstrap select base
-   .bootstrap-select {
+    .bootstrap-select {
         > .dropdown-toggle {
             position: relative;
             outline: none !important;
             padding: array-get($m--forms, input, layout, self, size, default, padding, y) array-get($m--forms, input, layout, self, size, default, padding, x);
             padding-right: array-get($m--forms, input, layout, self, size, default, padding, x) + 0.85rem;
-            
-            @include border-radius(array-get($m--forms, input, layout, self, size, default, border-radius), '!important'); 
+
+            @include border-radius(array-get($m--forms, input, layout, self, size, default, border-radius), '!important');
 
             &:focus {
-                outline: none !important; 
+                outline: none !important;
             }
 
             &:after {
-                @include m-generate-arrow-icon(down, true);   
+                @include m-generate-arrow-icon(down, true);
                 border: 0;
                 top: 50%;
                 position: absolute;
                 margin-top: 0;
                 font-size: 0.85rem;
                 right: (array-get($m--forms, input, layout, self, size, default, padding, x) + 0.85rem);
-                display: inline-block;                            
+                display: inline-block;
             }
         }
 
@@ -43,7 +43,7 @@
                     display: block;
                     position: relative;
                     outline: none !important;
-                    padding: $m-general-padding;    
+                    padding: $m-general-padding;
 
                     &:hover {
                         text-decoration: none;
@@ -65,11 +65,11 @@
 
                 &.selected {
                     > a {
-                        span.check-mark { 
-                            @include la-icon('\f17b');  
+                        span.check-mark {
+                            @include la-icon($la-check);
                             top: 50%;
                             position: absolute;
-                            margin-top: - (0.85rem / 2);  
+                            margin-top: - (0.85rem / 2);
                             font-size: 0.85rem;
                             right: (array-get($m--forms, input, layout, self, size, default, padding, x));
                             display: inline-block;
@@ -90,7 +90,7 @@
                 }
 
                 &.no-results {
-                    padding: $m-general-padding;   
+                    padding: $m-general-padding;
                 }
             }
         }
@@ -104,12 +104,12 @@
             }
         }
 
-        .bs-searchbox, 
-        .bs-actionsbox, 
+        .bs-searchbox,
+        .bs-actionsbox,
         .bs-donebutton {
             padding: $m-title-padding;
         }
-        
+
     }
 
     // Bootstrap select component
@@ -121,13 +121,13 @@
         // input styles
         &.m-bootstrap-select--pill {
             > .dropdown-toggle {
-                @include border-radius(array-get($m--forms, input, layout, self, size, default, pill-radius), '!important'); 
+                @include border-radius(array-get($m--forms, input, layout, self, size, default, pill-radius), '!important');
             }
         }
 
         &.m-bootstrap-select--square {
             > .dropdown-toggle {
-                @include border-radius(0, '!important'); 
+                @include border-radius(0, '!important');
             }
         }
     }
@@ -144,7 +144,7 @@
                 @include border-bottom-right-radius(0 !important);
             }
 
-            // the most right             
+            // the most right
             &:not(:first-child):last-child > .btn.dropdown-toggle {
                 @include border-top-left-radius(0 !important);
                 @include border-bottom-left-radius(0 !important);
@@ -152,7 +152,7 @@
 
             &:first-child + .input-group-text,
             &:not(:first-child) + .input-group-text {
-                border-left: 0;    
+                border-left: 0;
             }
 
             &:not(:first-child):not(:last-child) > .btn.dropdown-toggle {
@@ -167,15 +167,15 @@
         &.m-input-group--pill {
             > .bootstrap-select.dropdown {
                 &:not(:first-child):last-child {
-                   .btn.dropdown-toggle {
+                    .btn.dropdown-toggle {
                         @include border-top-right-radius(array-get($m--forms, input, layout, self, size, default, pill-radius) !important);
-                        @include border-bottom-right-radius(array-get($m--forms, input, layout, self, size, default, pill-radius) !important); 
+                        @include border-bottom-right-radius(array-get($m--forms, input, layout, self, size, default, pill-radius) !important);
                     }
                 }
             }
         }
 
-        .input-group-btn:not(:first-child) > .btn:first-child, 
+        .input-group-btn:not(:first-child) > .btn:first-child,
         .input-group-btn:not(:first-child) > .dropdown:first-child {
             margin-left: 0;
         }
@@ -185,7 +185,7 @@
 //== Component Skin
 @mixin m-build-component--select-skin($skin) {
     // Bootstrap select base
-   .bootstrap-select {
+    .bootstrap-select {
         // dropdown button
         > .dropdown-toggle {
             &.btn-light,
@@ -324,7 +324,7 @@
         // input styles
         &.m-bootstrap-select--air {
             > .dropdown-toggle {
-                @include shadow( array-get($m--forms, input, skins, $skin, air, box-shadow, default) );
+                @include shadow(array-get($m--forms, input, skins, $skin, air, box-shadow, default));
             }
         }
 
@@ -360,8 +360,8 @@
 
 //== Component Skin - Light
 @include m-build-component--select-skin(light);
-    
+
 //== Component Validation States
 @include m-build-component--select-validation-state(success, array-get($m--state-colors, success, base));
 @include m-build-component--select-validation-state(warning, array-get($m--state-colors, warning, base));
-@include m-build-component--select-validation-state(danger, array-get($m--state-colors, danger, base));  
+@include m-build-component--select-validation-state(danger, array-get($m--state-colors, danger, base));

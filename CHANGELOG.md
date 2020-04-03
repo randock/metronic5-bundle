@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.0] - 2020-04-03
+
+### Bugfix
+
+Modifications in the automatic calculation of the width of the columns in the datatable. Now you can leave all the columns without width to adjust automatically, or put fixed widths in the columns that are needed.
+
 ## [1.1.4] - 2019-12-17
 
 ### Bugfix

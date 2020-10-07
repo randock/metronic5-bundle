@@ -2,11 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Randock\MetronicBundle\HeaderBuilder\Twig;
+namespace Randock\Metronic5Bundle\HeaderBuilder\Twig;
 
-use Randock\MetronicBundle\HeaderBuilder\HeaderBuilder;
+use Twig\TwigFunction;
+use Twig\Extension\AbstractExtension;
+use Randock\Metronic5Bundle\HeaderBuilder\HeaderBuilder;
 
-class MetronicHeaderBuilderExtension extends \Twig_Extension
+class MetronicHeaderBuilderExtension extends AbstractExtension
 {
     /**
      * @var HeaderBuilder
@@ -21,7 +23,7 @@ class MetronicHeaderBuilderExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('getHeaderLists', [$this->headerBuilder, 'getServices']),
+            new TwigFunction('getHeaderLists', [$this->headerBuilder, 'getServices']),
         ];
     }
 }

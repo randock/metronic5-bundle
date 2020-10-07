@@ -806,7 +806,21 @@
 
 				// get total number of columns
 				var columns = $(datatable.tableHead).find('.m-datatable__row:first-child').find('.m-datatable__cell:visible').length;
+
 				if (columns > 0) {
+					$(datatable.tableHead)
+						.find('.m-datatable__row:first-child')
+						.find('.m-datatable__cell:visible')
+						.each(function(tdi, td) {
+                            var dataWidth = $(td).data('width');
+                            if (typeof dataWidth !== 'undefined') {
+                                containerWidth -= dataWidth;
+                                columns--;
+                                containerWidth -= parseInt($(td).css('padding-left'));
+                                containerWidth -= parseInt($(td).css('padding-right'));
+                            }
+					    });
+
 					//  remove reserved sort icon width
 					containerWidth = containerWidth - (sortOffset * columns);
 					var minWidth = Math.floor(containerWidth / columns);

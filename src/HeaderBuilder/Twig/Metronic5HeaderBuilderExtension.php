@@ -4,24 +4,34 @@ declare(strict_types=1);
 
 namespace Randock\Metronic5Bundle\HeaderBuilder\Twig;
 
+use Twig\TwigFunction;
+use Twig\Extension\AbstractExtension;
 use Randock\Metronic5Bundle\HeaderBuilder\HeaderBuilder;
 
-class Metronic5HeaderBuilderExtension extends \Twig_Extension
+class Metronic5HeaderBuilderExtension extends AbstractExtension
 {
     /**
      * @var HeaderBuilder
      */
     private $headerBuilder;
 
+    /**
+     * Metronic5HeaderBuilderExtension constructor.
+     *
+     * @param HeaderBuilder $headerBuilder
+     */
     public function __construct(HeaderBuilder $headerBuilder)
     {
         $this->headerBuilder = $headerBuilder;
     }
 
-    public function getFunctions()
+    /**
+     * @return TwigFunction[]
+     */
+    public function getFunctions(): array
     {
         return [
-            new \Twig_SimpleFunction('getHeaderLists', [$this->headerBuilder, 'getServices']),
+            new TwigFunction('getHeaderLists', [$this->headerBuilder, 'getServices']),
         ];
     }
 }

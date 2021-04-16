@@ -41,6 +41,8 @@ class HeaderBuilder
     }
 
     /**
+     * @throws \Exception
+     *
      * @return array
      */
     public function getServices(): array

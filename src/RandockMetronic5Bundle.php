@@ -11,7 +11,10 @@ use Randock\Metronic5Bundle\DependencyInjection\Compiler\HeaderListPass;
 
 class RandockMetronic5Bundle extends Bundle
 {
-    public function build(ContainerBuilder $container)
+    /**
+     * @param ContainerBuilder $container
+     */
+    public function build(ContainerBuilder $container): void
     {
         $container->addCompilerPass(new MenuPass());
         $container->addCompilerPass(new HeaderListPass());

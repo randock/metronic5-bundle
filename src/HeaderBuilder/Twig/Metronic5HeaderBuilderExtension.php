@@ -15,12 +15,20 @@ class Metronic5HeaderBuilderExtension extends AbstractExtension
      */
     private $headerBuilder;
 
+    /**
+     * Metronic5HeaderBuilderExtension constructor.
+     *
+     * @param HeaderBuilder $headerBuilder
+     */
     public function __construct(HeaderBuilder $headerBuilder)
     {
         $this->headerBuilder = $headerBuilder;
     }
 
-    public function getFunctions()
+    /**
+     * @return TwigFunction[]
+     */
+    public function getFunctions(): array
     {
         return [
             new TwigFunction('getHeaderLists', [$this->headerBuilder, 'getServices']),

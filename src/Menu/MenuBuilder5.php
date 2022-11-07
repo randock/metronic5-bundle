@@ -19,7 +19,6 @@ class MenuBuilder5 extends MenuBuilder
      */
     public function createMainMenu(RequestStack $requestStack): ItemInterface
     {
-        /** @var ItemInterface $menu */
         $menu = $this->factory->createItem('mainmenu');
         $menu->setChildrenAttribute('class', 'm-menu__nav  m-menu__nav--submenu-arrow');
         $this->loadServices($menu, $this->factory, self::MAIN_MENU);
@@ -32,8 +31,9 @@ class MenuBuilder5 extends MenuBuilder
 
     /**
      * @param ItemInterface $item
+     * @param string        $submenutoggle
      */
-    public function addSubmenu(ItemInterface $item, string $submenutoggle = self::TOGGLE_CLICK)
+    public function addSubmenu(ItemInterface $item, string $submenutoggle = self::TOGGLE_CLICK): void
     {
         foreach ($item as $child) {
             $child->setAttribute('aria-haspopup', 'true');
@@ -59,7 +59,6 @@ class MenuBuilder5 extends MenuBuilder
      */
     public function createTopMenu(RequestStack $requestStack): ItemInterface
     {
-        /** @var ItemInterface $menu */
         $menu = $this->factory->createItem('topmenu');
         $menu->setChildrenAttribute('class', 'm-nav m-nav--skin-light');
         $this->loadServices($menu, $this->factory, self::TOP_MENU);
@@ -70,7 +69,10 @@ class MenuBuilder5 extends MenuBuilder
         return $menu;
     }
 
-    public function setTopMenuItemsClasses(ItemInterface $item)
+    /**
+     * @param ItemInterface $item
+     */
+    public function setTopMenuItemsClasses(ItemInterface $item): void
     {
         /** @var ItemInterface $child */
         foreach ($item as $child) {

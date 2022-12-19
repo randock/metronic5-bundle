@@ -16,7 +16,6 @@ class MenuBuilder1 extends MenuBuilder
      */
     public function createMainMenu(RequestStack $requestStack): ItemInterface
     {
-        /** @var ItemInterface $menu */
         $menu = $this->factory->createItem('mainmenu');
         $menu->setChildrenAttribute('class', 'm-menu__nav  m-menu__nav--dropdown-submenu-arrow');
 
@@ -31,7 +30,7 @@ class MenuBuilder1 extends MenuBuilder
     /**
      * @param ItemInterface $item
      */
-    public function addSubmenu(ItemInterface $item)
+    public function addSubmenu(ItemInterface $item): void
     {
         foreach ($item as $child) {
             $child->setAttribute('class', 'm-menu__item m-menu__item--submenu');
@@ -54,7 +53,6 @@ class MenuBuilder1 extends MenuBuilder
      */
     public function createTopMenu(RequestStack $requestStack): ItemInterface
     {
-        /** @var ItemInterface $menu */
         $menu = $this->factory->createItem('topmenu');
         $menu->setChildrenAttribute('class', 'm-nav m-nav--skin-light');
         $this->loadServices($menu, $this->factory, self::TOP_MENU);
@@ -65,7 +63,10 @@ class MenuBuilder1 extends MenuBuilder
         return $menu;
     }
 
-    public function setTopMenuItemsClasses(ItemInterface $item)
+    /**
+     * @param ItemInterface $item
+     */
+    public function setTopMenuItemsClasses(ItemInterface $item): void
     {
         /** @var ItemInterface $child */
         foreach ($item as $child) {

@@ -9,7 +9,10 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
 
 class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    /**
+     * @return TreeBuilder
+     */
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('randock_metronic5');
         $rootNode = $treeBuilder->getRootNode();

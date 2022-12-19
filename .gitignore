@@ -1,5 +1,6 @@
 vendor
 .idea
+/build/
 .php_cs.cache
 /docker-compose.yml
 node_modules
